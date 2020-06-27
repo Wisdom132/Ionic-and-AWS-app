@@ -16,6 +16,8 @@ app.use(bodyParser.json());
 //---------------configure morgan  --------
 app.use(morgan("dev"));
 
+require("./config/mongoose")(app);
+
 
 // define first route
 app.get("/", (req, res) => {
