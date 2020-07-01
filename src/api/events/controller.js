@@ -36,3 +36,19 @@ exports.uploadImage = async (req, res) => {
         })
     }
 }
+exports.getAllEvents = async (req, res) => {
+    try {
+        let events = await Event.find();
+        res.status(200).json({
+            status: "Success",
+            data: events
+        })
+
+    } catch (err) {
+        res.status(500).json({
+            status: "error",
+            error: err
+
+        })
+    }
+}
