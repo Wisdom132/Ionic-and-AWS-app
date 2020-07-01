@@ -22,7 +22,7 @@ const upload = multer({
     fileFilter,
     storage: multerS3({
         s3,
-        bucket: 'instagram-app',
+        bucket: 'eventskeeper',
         acl: 'public-read',
         metadata: function (req, file, cb) {
             cb(null, {

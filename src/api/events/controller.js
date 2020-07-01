@@ -8,9 +8,9 @@ const {
 const singleUpload = upload.single('image');
 
 
-exports.uploadImage = async (req, res) => {
+exports.addEvent = async (req, res) => {
     try {
-        singleUpload(req, res, err => {
+        await singleUpload(req, res, err => {
             if (err) {
                 return res.status(422).json({
                     title: "File Upload Error",
