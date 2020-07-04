@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Add Event
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div id="container">
+    <form>
+      <ion-item id="rounded">
+        <ion-label position="stacked">Name</ion-label>
+        <ion-input id="input"></ion-input>
+      </ion-item>
+      <ion-item id="rounded">
+        <ion-input id="photo" name="file" type="file" accept="image/*" (ionChange)="fileChangeListener($event)">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Description</ion-label>
+        <ion-textarea rows="6" cols="20"></ion-textarea>
+      </ion-item>
+      <div class="ion-padding">
+        <ion-button expand="block" type="submit" class="ion-no-margin">Add An Event</ion-button>
+      </div>
+    </form>
+  </div>
+
+
+
+</ion-content>
