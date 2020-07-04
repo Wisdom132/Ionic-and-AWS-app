@@ -1,9 +1,18 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class EventService {
+	readonly rootURL: string = 'https://localhost:4000';
 
-  constructor() { }
+	getAllEvents() {
+		return this.http.get(`${this.rootURL}/event`);
+	}
+
+	addEvent(payload) {
+		return this.http.get(`${this.rootURL}/event`, payload);
+	}
+	constructor(private http: HttpClient) {}
 }
