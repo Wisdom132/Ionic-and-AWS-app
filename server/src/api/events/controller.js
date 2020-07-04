@@ -52,3 +52,5 @@ exports.getAllEvents = async (req, res) => {
         })
     }
 }
+
+//testing commit
