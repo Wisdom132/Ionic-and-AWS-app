@@ -22,20 +22,20 @@ exports.addEvent = async (req, res) => {
                 description: req.body.description,
                 image: req.file.location
             })
-            let response = await event.save();
+            event.save();
             res.status(200).json({
                 status: "Success",
-                data: response
+                mes: "New Event Created"
             })
         })
     } catch (err) {
         res.status(500).json({
             status: "error",
             error: err
-
         })
     }
 }
+
 exports.getAllEvents = async (req, res) => {
     try {
         let events = await Event.find();
