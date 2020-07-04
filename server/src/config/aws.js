@@ -22,7 +22,7 @@ const upload = multer({
     fileFilter,
     storage: multerS3({
         s3,
-        bucket: 'eventskeeper',
+        bucket: 'eventkeeper',
         acl: 'public-read',
         metadata: function (req, file, cb) {
             cb(null, {
