@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 	providedIn: 'root'
 })
 export class EventService {
+	constructor(private http: HttpClient) {}
+
 	readonly rootURL: string = 'https://localhost:4000';
 
 	getAllEvents() {
@@ -14,5 +16,4 @@ export class EventService {
 	addEvent(payload) {
 		return this.http.get(`${this.rootURL}/event`, payload);
 	}
-	constructor(private http: HttpClient) {}
 }
