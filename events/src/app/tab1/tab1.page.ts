@@ -11,9 +11,9 @@ export class Tab1Page {
 
 	getEvents() {
 		console.log('hello');
-		// this.Event.getAllEvents().subscribe((data: any) => {
-		// 	console.log(data);
-		// });
+		this.Event.getAllEvents().subscribe((data: any) => {
+			console.log(data);
+		});
 	}
 
 	ngOnInit(): void {
