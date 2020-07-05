@@ -26,7 +26,7 @@ export class Tab2Page {
 		formData.append('image', this.fileToUpload, this.fileToUpload.name);
 		formData.append('name', this.eventForm.value.name);
 		formData.append('description', this.eventForm.value.description);
-		this.Event.addEvent(formData).subscribe(
+		this.Event.addNewEvent(formData).subscribe(
 			(data: any) => {
 				console.log(data);
 			},
