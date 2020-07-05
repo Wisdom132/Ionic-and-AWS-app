@@ -32,8 +32,6 @@ export class Tab2Page {
 			},
 			(err: HttpErrorResponse) => {
 				console.log({ error: err });
-				this.addLoading = false;
-				Swal.fire('Error', 'Something Went wrong', 'error');
 			}
 		);
 	}
