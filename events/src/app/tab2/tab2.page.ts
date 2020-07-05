@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { EventService } from '../../app/api/event.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
 	selector: 'app-tab2',
@@ -25,9 +26,16 @@ export class Tab2Page {
 		formData.append('image', this.fileToUpload, this.fileToUpload.name);
 		formData.append('name', this.eventForm.value.name);
 		formData.append('description', this.eventForm.value.description);
-		this.Event.addEvent(formData).subscribe((data: any) => {
-			console.log(data);
-		});
+		this.Event.addEvent(formData).subscribe(
+			(data: any) => {
+				console.log(data);
+			},
+			(err: HttpErrorResponse) => {
+				console.log({ error: err });
+				this.addLoading = false;
+				Swal.fire('Error', 'Something Went wrong', 'error');
+			}
+		);
 	}
 	constructor(private Event: EventService) {}
 }

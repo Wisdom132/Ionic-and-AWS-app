@@ -8,10 +8,10 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
   <div id="container">
-    <form>
+    <form [formGroup]="eventForm">
       <ion-item id="rounded">
         <ion-label position="stacked">Name</ion-label>
-        <ion-input id="input"></ion-input>
+        <ion-input formControlName="name" id="input"></ion-input>
       </ion-item>
       <ion-item id="rounded">
         <ion-input id="photo" name="file" type="file" accept="image/*" (change)="handleFileInput($event.target.files)">
@@ -19,7 +19,7 @@
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Description</ion-label>
-        <ion-textarea rows="6" cols="20"></ion-textarea>
+        <ion-textarea formControlName="description" rows="6" cols="20"></ion-textarea>
       </ion-item>
       <div class="ion-padding">
         <ion-button expand="block" type="submit" class="ion-no-margin">Add An Event</ion-button>
