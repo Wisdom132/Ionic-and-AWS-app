@@ -3,6 +3,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { EventService } from '../../app/api/event.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { LoadingController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
+import { Validators } from '@angular/forms';
 
 @Component({
 	selector: 'app-tab2',
@@ -13,8 +15,8 @@ export class Tab2Page {
 	fileToUpload: File = null;
 
 	eventForm = new FormGroup({
-		name: new FormControl(''),
-		description: new FormControl('')
+		name: new FormControl('', Validators.required),
+		description: new FormControl('', Validators.required)
 	});
 
 	handleFileInput(files: FileList) {
@@ -29,6 +31,14 @@ export class Tab2Page {
 		return await loading.present();
 	}
 
+	async presentToast(message) {
+		const toast = await this.toastController.create({
+			message: message,
+			duration: 2000
+		});
+		return toast.present();
+	}
+
 	addEvent() {
 		this.presentLoading();
 		const formData: FormData = new FormData();
@@ -40,13 +50,19 @@ export class Tab2Page {
 			(data: any) => {
 				this.loadingController.dismiss();
 				this.eventForm.reset();
+				this.presentToast('Event Added');
 			},
 			(err: HttpErrorResponse) => {
 				this.loadingController.dismiss();
+				this.presentToast('Something Went Wrong');
 				console.log({ error: err });
 			}
 		);
 	}
 
-	constructor(private Event: EventService, public loadingController: LoadingController) {}
+	constructor(
+		private Event: EventService,
+		public loadingController: LoadingController,
+		public toastController: ToastController
+	) {}
 }
