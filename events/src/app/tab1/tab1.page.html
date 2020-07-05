@@ -7,18 +7,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <img style="width:100%;height:250px;object-fit: cover;"
-      src="https://images.pexels.com/photos/3323208/pexels-photo-3323208.jpeg?cs=srgb&dl=woman-leaning-on-sinalco-cola-can-3323208.jpg&fm=jpg"
-      alt="">
+  <ion-card *ngFor="let event of events">
+    <img style="width:100%;height:250px;object-fit: cover;" [src]="event.image" alt="">
     <ion-card-header>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-      <ion-card-title>Card Title</ion-card-title>
+      <ion-card-title>{{event.name}}</ion-card-title>
+
+      <ion-card-subtitle>{{event.createdAt |date}}</ion-card-subtitle>
     </ion-card-header>
 
     <ion-card-content>
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      {{event.description}}
     </ion-card-content>
   </ion-card>
 </ion-content>

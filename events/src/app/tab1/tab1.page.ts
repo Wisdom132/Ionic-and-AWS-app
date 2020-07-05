@@ -8,11 +8,12 @@ import { EventService } from '../../app/api/event.service';
 })
 export class Tab1Page {
 	constructor(private Event: EventService) {}
+	events = [];
 
 	getEvents() {
 		console.log('hello');
 		this.Event.getAllEvents().subscribe((data: any) => {
-			console.log(data);
+			this.events = data.data;
 		});
 	}
 
