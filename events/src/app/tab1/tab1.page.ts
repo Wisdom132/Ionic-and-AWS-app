@@ -13,7 +13,9 @@ export class Tab1Page {
 	getEvents() {
 		console.log('hello');
 		this.Event.getAllEvents().subscribe((data: any) => {
-			this.events = data.data;
+			this.events = data.data.reverse();
+
+			//the reverse method will get from the latest event added
 		});
 	}
 
