@@ -13,7 +13,7 @@ export class EventService {
 		return this.http.get(`${this.rootURL}/event`);
 	}
 
-	addEvent(payload) {
+	addNewEvent(payload) {
 		return this.http.get(`${this.rootURL}/event`, payload);
 	}
 }

@@ -8,7 +8,7 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
   <div id="container">
-    <form [formGroup]="eventForm">
+    <form [formGroup]="eventForm" (submit)="addEvent()">
       <ion-item id="rounded">
         <ion-label position="stacked">Name</ion-label>
         <ion-input formControlName="name" id="input"></ion-input>
