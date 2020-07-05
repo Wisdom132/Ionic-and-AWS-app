@@ -14,7 +14,7 @@
         <ion-input id="input"></ion-input>
       </ion-item>
       <ion-item id="rounded">
-        <ion-input id="photo" name="file" type="file" accept="image/*" (ionChange)="fileChangeListener($event)">
+        <ion-input id="photo" name="file" type="file" accept="image/*" (change)="handleFileInput($event.target.files)">
         </ion-input>
       </ion-item>
       <ion-item>
