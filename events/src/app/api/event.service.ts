@@ -14,6 +14,6 @@ export class EventService {
 	}
 
 	addNewEvent(payload) {
-		return this.http.get(`${this.rootURL}/event`, payload);
+		return this.http.post(`${this.rootURL}/event`, payload);
 	}
 }
