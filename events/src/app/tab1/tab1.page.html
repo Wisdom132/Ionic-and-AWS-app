@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
   <ion-card *ngFor="let event of events">
     <img style="width:100%;height:250px;object-fit: cover;" [src]="event.image" alt="">
     <ion-card-header>
@@ -19,4 +20,5 @@
       {{event.description}}
     </ion-card-content>
   </ion-card>
+
 </ion-content>
